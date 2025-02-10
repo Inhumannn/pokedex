@@ -1,7 +1,5 @@
 from tkinter import *
-from tkinter import Tk, Canvas
-from random import randrange
-
+from PIL import ImageTk, Image
 
 class Pokemon:
     def __init__(self, type, evolution, heal, attack, speed, defence, weakness):
@@ -13,26 +11,25 @@ class Pokemon:
         self.defence = defence
         self.weakness = weakness
     
-# geometryW = 800
-# geometryh = 600
-# root = Tk()
-# root.title("Pokedex")
-# pokedex = Canvas(root, width=geometryW, height=geometryh, bg="black") 
-# pokedex.create_rectangle(555,595,10,10, fill="deep sky blue", width=0) # Changer de color selon le type de pokemon
-# pokedex.create_rectangle(790,595,565,10, fill="red", width=0)
-# logo = PhotoImage(file="img/logo.png")
-# pokedex.create_image(600, 20, image=logo, anchor=NW)
-# pokedex.create_text(600, 100, text="Hello word !")
-
-# pokedex.pack()
-# root.mainloop()
-
 root = Tk()
+# Titre
 root.title("Pokedex")
-root.geometry("800x600")
-pokemon_profile = Frame(root, bg="red", width=0, height=595)
-type_pokemon = Frame(root)
+# Taille
+root.geometry("900x600")
+# Frame : pokemon_profile
+pokemon_profile = Frame(root, bg="deep sky blue", width=675, height=600, highlightbackground="Black", highlightthickness=7)
+# positionnement
+pokemon_profile.place(x=0, y=0)
+# Frame : type_pokemon
+type_pokemon = Frame(root, bg="red", width=230, height=600, highlightbackground="Black", highlightthickness=7)
+# Positionnement
+type_pokemon.place(x=670, y=0)
+# Logo pokemon
+place_logo = Frame(root)
+place_logo.pack()
+place_logo.place(anchor=NE , relx=0.96, rely=0.05)
 
-pokemon_profile.pack()
-type_pokemon.pack()
+logo = ImageTk.PhotoImage(Image.open("img/logo.png"))
+label = Label(place_logo, image=logo)
+label.pack()
 root.mainloop()
