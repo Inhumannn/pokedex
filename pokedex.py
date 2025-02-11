@@ -1,17 +1,38 @@
 from tkinter import *
 from PIL import ImageTk, Image
 from tkinter import ttk
-
+import pickle
+# Class Pokemon
 class Pokemon:
     def __init__(self, name, types, heal, attack, speed, defence, weakness):
-        self,name = name
+        self.name = name
         self.types = types
         self.heal = heal
         self.attack = attack
         self.speed = speed
         self.defence = defence
         self.weakness = weakness
-    
+ # Information
+    def afficher_informations(self):
+        return self.name, self.types, self.heal, self.attack, self.speed, self.defence, self.weakness
+# list_Pokemon
+list_pokemon = [
+    Pokemon("Bulbizarre", "Plante", 60, 50, 90, 30, "combat"),
+    Pokemon("Salamèche", "Feu", 60, 50, 90, 30, "combat"),
+    Pokemon("Carapuce", "Eau", 60, 50, 90, 30, "combat"),
+    Pokemon("Pikachou", "Electrique", 60, 50, 90, 30, "combat")
+]
+# Séréalisation
+with open("date.pickle","wb") as file:
+    pickle.dump(list_pokemon, file)
+
+# Déséralisation
+with open("data.pickle","rb") as file:
+    objet_deserialise = pickle.load(file)
+# Affichage de l'objet
+for pokemon in objet_deserialise:
+    print(pokemon)
+
 ## Principale
 root = Tk()
 # Titre
@@ -20,7 +41,6 @@ root.title("Pokedex")
 root.tk.call('wm','iconphoto', root._w, PhotoImage(file="img/icon.png"))
 # Taille
 root.geometry("900x600")
-## Gauche_background
 # Frame : pokemon_profile
 pokemon_profile = Frame(root, bg="deep sky blue", width=675, height=600, highlightbackground="Black", highlightthickness=7)
 # positionnement

@@ -1,15 +1,32 @@
 from tkinter import *
 from PIL import ImageTk, Image
+from tkinter import ttk
+import pickle
 
-win = Tk()
-win.geometry("700x500")
 
-frame = Frame(win, width=600, height=400)
-frame.pack()
-frame.place(anchor='center', relx=0.5, rely=0.5)
+class Pokemon:
+    def __init__(self, name, type, level):
+        self.name = name
+        self.type = type
+        self.level = level
 
-img = ImageTk.PhotoImage(Image.open("img/logo.png"))
-label = Label(frame, image=img)
-label.pack()
+    def __str__(self):
+        return f"{self.name} (Type: {self.type}, Level: {self.level})"
 
-win.mainloop()
+pokemon_list = [
+    Pokemon("Pikachu", "Electric", 5),
+    Pokemon("Bulbasaur", "Grass", 7),
+    Pokemon("Charmander", "Fire", 10)
+]
+
+# Sérialisation de la liste de Pokémon
+with open('pokemon_list.pkl', 'wb') as f:
+    pickle.dump(pokemon_list, f)
+
+# Désérialisation de la liste de Pokémon
+with open('pokemon_list.pkl', 'rb') as f:
+    loaded_pokemon_list = pickle.load(f)
+
+# Affichage des Pokémon désérialisés
+for pokemon in loaded_pokemon_list:
+    print(pokemon)
