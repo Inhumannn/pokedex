@@ -20,25 +20,84 @@ root.title("Pokedex")
 root.tk.call('wm','iconphoto', root._w, PhotoImage(file="img/icon.png"))
 # Taille
 root.geometry("900x600")
-## Gauche
-# Logo pokemon
-name_pokemon = Frame(root)
-name_pokemon.pack()
-# Positionnement
-name_pokemon.place(anchor=NE , relx=0.5, rely=0.5)
-# Label
-label = Label(name_pokemon, text="blabla", borderwidth=0, highlightthickness=0)
-label.pack() ## Continuer ne marche pas encore
-
-## Droite
+## Gauche_background
 # Frame : pokemon_profile
 pokemon_profile = Frame(root, bg="deep sky blue", width=675, height=600, highlightbackground="Black", highlightthickness=7)
 # positionnement
 pokemon_profile.place(x=0, y=0)
+## Droite
 # Frame : type_pokemon
 type_pokemon = Frame(root, bg="red", width=230, height=600, highlightbackground="Black", highlightthickness=7)
 # Positionnement
 type_pokemon.place(x=670, y=0)
+############################################################################################################################
+# Nom pokemon
+name_pokemon = Frame(root)
+name_pokemon.pack()
+# Positionnement
+name_pokemon.place(anchor=NE, relx=0.28, rely=0.1)
+# Label
+label = Label(name_pokemon, text="name_pokemon", font=("Arial", 22), bg="deep sky blue")
+label.pack()
+# image de base ##210px
+img_pokedex_base = Frame(root)
+img_pokedex_base.pack()
+# Positionnement
+img_pokedex_base.place(anchor=NE , relx=0.3, rely=0.2)
+# Affichage
+img_base = ImageTk.PhotoImage(Image.open("img/base.png"))
+# Label
+label = Label(img_pokedex_base, image=img_base, borderwidth=0, highlightthickness=0)
+label.pack()
+# Types
+types_pokemon = Frame(root)
+types_pokemon.pack()
+# Positionnement
+types_pokemon.place(anchor=NE, relx=0.5, rely=0.23)
+# Label
+label = Label(types_pokemon, text="Types : ", font=("Arial", 12), bg="deep sky blue")
+label.pack()
+# Heal
+heal_pokemon = Frame(root)
+heal_pokemon.pack()
+# Positionnement
+heal_pokemon.place(anchor=NE, relx=0.5, rely=0.28)
+# Label
+label = Label(heal_pokemon, text="Heal : ", font=("Arial", 12), bg="deep sky blue")
+label.pack()
+# Attack
+attack_pokemon = Frame(root)
+attack_pokemon.pack()
+# Positionnement
+attack_pokemon.place(anchor=NE, relx=0.5, rely=0.33)
+# Label
+label = Label(attack_pokemon, text="Attack : ", font=("Arial", 12), bg="deep sky blue")
+label.pack()
+# Speed
+speed_pokemon = Frame(root)
+speed_pokemon.pack()
+# Positionnement
+speed_pokemon.place(anchor=NE, relx=0.5, rely=0.38)
+# Label
+label = Label(speed_pokemon, text="Speed : ", font=("Arial", 12), bg="deep sky blue")
+label.pack()
+# Weak
+defence_pokemon = Frame(root)
+defence_pokemon.pack()
+# Positionnement
+defence_pokemon.place(anchor=NE, relx=0.5, rely=0.43)
+# Label
+label = Label(defence_pokemon, text="Defence : ", font=("Arial", 12), bg="deep sky blue")
+label.pack()
+# Weak
+weak_pokemon = Frame(root)
+weak_pokemon.pack()
+# Positionnement
+weak_pokemon.place(anchor=NE, relx=0.5, rely=0.48)
+# Label
+label = Label(weak_pokemon, text="Weak : ", font=("Arial", 12), bg="deep sky blue")
+label.pack()
+############################################################################################################################
 # Logo pokemon
 place_logo = Frame(root)
 place_logo.pack()
